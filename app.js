@@ -40,7 +40,7 @@ function arabicConvert(str){
     '_D',
     '_C',
     '_L',
-    '_X',
+    'x',
     '_V',
     "M",
     "CM",
@@ -54,17 +54,27 @@ function arabicConvert(str){
     "IX",
     "V",
     "IV",
-    "I"
+    "I",
 ];
 
   let numeral = 0;
-
-  for (let i = 0; i < decimalValue.length; i++) {
+  
+  for (let i = decimalValue.length-1; i > 0; i--) {
+    console.log(i)
     while (str.includes(romanNumeral[i])) {
-      numeral += decimalValue[i];
-      console.log(str);
+      let matchIndex = str.indexOf(romanNumeral[i]);
+      let x = str[matchIndex] + str[matchIndex+1];
+      console.log(x);
+      if(romanNumeral.includes(x)){
+        numeral+= decimalValue[romanNumeral.indexOf(x)]
+        str = str.replace(x, "")
+      }
+      else{
+      numeral+= decimalValue[i];
       str = str.replace(romanNumeral[i], "")
-      console.log(str);
+      }
+      console.log(str, numeral);
+      console.log(str, numeral);
     }
   }
 
