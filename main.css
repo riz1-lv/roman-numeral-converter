@@ -1,6 +1,15 @@
 #middleBox{
-  padding-top: 70px
+  padding-top: 100px
 }
 #navigation{
 box-shadow: 0px -2px 22px 10px rgba(0,0,0,0.23);
+}
+.form-control {
+  font-size: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#arabBox, #romanBox{
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
