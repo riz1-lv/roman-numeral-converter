@@ -1,6 +1,11 @@
 #middleBox{
   padding-top: 200px
 }
+@media (max-width: 979px) {
+  #middleBox {
+    padding-top: 100px;
+}
+}
 #navigation, #navigations{
   background-color: #272323;
 box-shadow: 0px -2px 22px 10px rgba(0,0,0,0.23);

@@ -7,12 +7,14 @@ function romanify(){
     $('#errorMsg').text('');
     }
     
-  if(isNaN(result)){
+  if(!(arabicInput.match(/^[0-9]+$/g))||result>= 9999999){
     document.getElementById('romanInput').value = '';
     $('#errorMsg').text('Enter a Number');
+    $('#arabicInput').addClass('is-invalid');
   }
   if(arabicInput.length === 0){
     $('#errorMsg').text('');
+    $('#arabicInput').removeClass('is-invalid');
   }
 }
 function numerify(){
@@ -29,6 +31,7 @@ function numerify(){
   }
   if(romanInput.length === 0){
     $('#romanErrorMsg').text('');
+    $('#romanInput').removeClass('is-invalid');
   }
 }
 
