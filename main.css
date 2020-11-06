@@ -19,6 +19,9 @@ box-shadow: 0px -2px 22px 10px rgba(0,0,0,0.23);
   padding-bottom: 30px;
   padding-top: 30px;
 }
+p{
+  color: #ff0033;
+}
 #background{
   /* background image from coolbackgrounds.io */
   background-image: url("cool-background.png");

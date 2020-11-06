@@ -1,4 +1,27 @@
-
+const decimalValue = [100000, 90000, 50000, 40000, 10000, 9000, 5000, 4000, 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+const romanNumeral = [
+  '\u2188',
+  '\u2182\u2188',
+  '\u2187',
+  '\u2182\u2187',
+  '\u2182',
+  'M\u2182',
+  '\u2181',
+  'M\u2181',
+  "M",
+  "CM",
+  "D",
+  "CD",
+  "C",
+  "XC",
+  "L",
+  "XL",
+  "X",
+  "IX",
+  "V",
+  "IV",
+  "I",
+];
 function romanify(){
   let arabicInput = document.getElementById('arabicInput').value;
   let result = parseInt(arabicInput);
@@ -7,9 +30,9 @@ function romanify(){
     $('#errorMsg').text('');
     }
     
-  if(!(arabicInput.match(/^[0-9]+$/g))||result>= 9999999){
+  if(!(arabicInput.match(/^[0-9]+$/g))|| result > 399999){
     document.getElementById('romanInput').value = '';
-    $('#errorMsg').text('Enter a Number');
+    $('#errorMsg').text('Enter a number from 1 to 399999');
     $('#arabicInput').addClass('is-invalid');
   }
   if(arabicInput.length === 0){
@@ -20,12 +43,12 @@ function romanify(){
 function numerify(){
   let romanInput = document.getElementById('romanInput').value;
   let result = romanInput;
-  if (!isNaN(result)) {
+  if (!isNaN(result) || arabicConvert(result) == 0) {
     document.getElementById('arabicInput').value = '';
-    $('#romanErrorMsg').text('Enter a Roman numeral');
+    $('#romanErrorMsg').text('Enter a valid Roman numeral in all caps');
+    $('#romanInput').addClass('is-invalid');
     }
-    
-  if(isNaN(result)){
+  else{
     document.getElementById('arabicInput').value = arabicConvert(result);
     $('#romanErrorMsg').text('');
   }
@@ -37,28 +60,9 @@ function numerify(){
 
 
 function arabicConvert(str){
-  let decimalValue = [1000000,500000,100000,50000, 10000, 5000, 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  let romanNumeral = [
-    '_M',
-    '_D',
-    '\u2188',
-    '\u2187',
-    '\u2182',
-    '\u2181',
-    "M",
-    "CM",
-    "D",
-    "CD",
-    "C",
-    "XC",
-    "L",
-    "XL",
-    "X",
-    "IX",
-    "V",
-    "IV",
-    "I",
-];
+  if(str.match(/[a-zABE-HJ-UWYZ]/g)){
+    return 0;
+  }
 
   let numeral = 0;
   
@@ -86,28 +90,6 @@ function arabicConvert(str){
 
 
 function romanConvert(num){
-  let decimalValue = [1000000,500000,100000,50000, 10000, 5000, 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  let romanNumeral = [
-    '_M',
-    '_D',
-    '\u2188',
-    '\u2187',
-    '\u2182',
-    '\u2181',
-    "M",
-    "CM",
-    "D",
-    "CD",
-    "C",
-    "XC",
-    "L",
-    "XL",
-    "X",
-    "IX",
-    "V",
-    "IV",
-    "I"
-];
 
   let romanized = "";
 
